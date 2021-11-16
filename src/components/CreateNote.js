@@ -1,6 +1,18 @@
 import React from 'react';
+import noteColors from './noteColors';
 
-function CreateNote({ title, text, color, handleChange, handleSubmit,maxLength}) {
+function CreateNote({
+	title,
+	text,
+	color,
+	handleChange,
+	handleSubmit,
+	maxLength,
+}) {
+	// Creating select options
+	const options = Object.keys(noteColors).map((item) => (
+		<option value={item}>{item}</option>
+	));
 	return (
 		<div className="notes__form">
 			<form onSubmit={handleSubmit}>
@@ -18,15 +30,11 @@ function CreateNote({ title, text, color, handleChange, handleSubmit,maxLength})
 						value={text}
 						onChange={handleChange}
 					></textarea>
-					<div>{`${maxLength-text.length} remaining`}</div>
+					<div>{`${maxLength - text.length} remaining`}</div>
 				</div>
 				<div className="notes__form--buttons">
 					<select name="color" value={color} onChange={handleChange}>
-						<option value="yellow">Yellow</option>
-						<option value="blue">Blue</option>
-						<option value="green">Green</option>
-						<option value="pink">Pink</option>
-						<option value="orange">Orange</option>
+						{options}
 					</select>
 					<button type="submit">Create</button>
 				</div>
