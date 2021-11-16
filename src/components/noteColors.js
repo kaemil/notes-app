@@ -1,8 +1,9 @@
 const noteColors = {
-	yellow: '#FFF580',
-	blue: '#5CD0C4',
-	green: '#5cd062',
-	pink: '#f480ff',
+	yellow: '#eded74',
+	blue: '#74c9ed',
+	green: '#74ed76',
+	pink: '#d973c6',
+   orange: '#edc374'
 };
 
 export default noteColors

@@ -11,7 +11,7 @@ function App() {
 	const [color, setColor] = useState('yellow');
 	const [note, setNote] = useState([]);
 	const editState = true;
-	const maxLength = 200;
+	const maxLength = 300;
 
 	const handleChange = (e) => {
 		if (maxLength - e.target.value.length >= 0) {
@@ -70,6 +70,7 @@ function App() {
 			/>
 			<DisplayNote
 				note={note}
+            maxLength={maxLength}
 				handleDelete={handleDelete}
 				handleEdit={handleEdit}
 				handleSave={handleSave}

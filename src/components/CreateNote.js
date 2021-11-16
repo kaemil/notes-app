@@ -26,6 +26,7 @@ function CreateNote({ title, text, color, handleChange, handleSubmit,maxLength})
 						<option value="blue">Blue</option>
 						<option value="green">Green</option>
 						<option value="pink">Pink</option>
+						<option value="orange">Orange</option>
 					</select>
 					<button type="submit">Create</button>
 				</div>

@@ -1,6 +1,9 @@
+* {
+	font-family: 'Quicksand', sans-serif;
+	font-size: 16px;
+}
 body {
 	margin: 0;
-	font-size: 15px;
 }
 
 header {
@@ -12,6 +15,8 @@ header {
 
 .notes {
 	margin: 10px;
+	height: 200px;
+
 	&__form {
 		margin-bottom: 20px;
 	}
@@ -39,9 +44,11 @@ header {
 		margin-bottom: 20px;
 
 		textarea {
+			font-size: 16px;
 			height: 100px;
 		}
 		div {
+			border-top: 1px solid #707070;
 			width: 100%;
 			padding: 10px;
 			height: 20px;
@@ -83,10 +90,16 @@ header {
 	}
 	&__text {
 		word-wrap: break-word;
-		max-height: 175px;
+		height: 175px;
 		padding: 10px;
 		box-sizing: border-box;
 	}
+	&__title {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
 	&__title,
 	&__title--edit,
 	&__date {
@@ -94,7 +107,7 @@ header {
 	}
 	&__title,
 	&__title--edit {
-		font-weight: bold;
+		font-weight: 800;
 	}
 	&__editIcon,
 	&__deleteIcon {
@@ -105,43 +118,65 @@ header {
 		font-size: 20px;
 	}
 	&__title--edit {
+		width: 100%;
 	}
-	&__title--edit > input {
+	&__title--edit > input,
+	&__text--edit > textarea {
+		word-wrap: break-word;
+		padding: 0;
+		font-size: 16px;
+		box-sizing: border-box;
+		border-radius: 20px;
+		margin: 0;
+		outline: none;
+		width: 100%;
+		resize: none;
+		padding: 10px;
+		border: 1px solid #707070;
 	}
-	&__text,
 	&__text--edit {
-	}
-	&__text--edit {
-      padding: 10px;
+		height: 175px;
+		box-sizing: border-box;
+		padding: 10px;
 	}
 	&__text--edit > textarea {
-      padding: 0;
-      box-sizing: border-box;
-      margin: 0;
-      width: 100%;
-      height: 100px;
-      resize: none;
+		height: 155px;
 	}
 }
 
 @media (min-width: 800px) {
 	header {
-
 		margin-bottom: 50px;
 	}
-
 
 	.notes {
 		width: 80vw;
 		margin: 50px auto 0 auto;
 
-
-      &__form{
-         margin-left: auto;
-         margin-right: auto;
-         width: 600px;
-      }
+		&__form {
+			margin-left: auto;
+			margin-right: auto;
+			width: 600px;
+		}
 		&__display {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: repeat(2, 50%);
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.notes {
+		&__display {
+			grid-template-columns: repeat(3, 33.3%);
+		}
+	}
+}
+@media (min-width: 1600px) {
+	.notes {
+		&__display {
+			grid-template-columns: repeat(4, 25%);
 		}
 	}
 }

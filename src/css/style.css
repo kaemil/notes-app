@@ -1,6 +1,10 @@
+* {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+}
+
 body {
   margin: 0;
-  font-size: 15px;
 }
 
 header {
@@ -12,6 +16,7 @@ header {
 
 .notes {
   margin: 10px;
+  height: 200px;
 }
 
 .notes__form {
@@ -48,10 +53,12 @@ header {
 }
 
 .notes__form--text textarea {
+  font-size: 16px;
   height: 100px;
 }
 
 .notes__form--text div {
+  border-top: 1px solid #707070;
   width: 100%;
   padding: 10px;
   height: 20px;
@@ -103,10 +110,16 @@ header {
 
 .note__text {
   word-wrap: break-word;
-  max-height: 175px;
+  height: 175px;
   padding: 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+.note__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .note__title, .note__title--edit, .note__date {
@@ -116,7 +129,7 @@ header {
 }
 
 .note__title, .note__title--edit {
-  font-weight: bold;
+  font-weight: 800;
 }
 
 .note__editIcon, .note__deleteIcon {
@@ -127,18 +140,35 @@ header {
   font-size: 20px;
 }
 
+.note__title--edit {
+  width: 100%;
+}
+
+.note__title--edit > input,
+.note__text--edit > textarea {
+  word-wrap: break-word;
+  padding: 0;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 20px;
+  margin: 0;
+  outline: none;
+  width: 100%;
+  resize: none;
+  padding: 10px;
+  border: 1px solid #707070;
+}
+
 .note__text--edit {
+  height: 175px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 10px;
 }
 
 .note__text--edit > textarea {
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  width: 100%;
-  height: 100px;
-  resize: none;
+  height: 155px;
 }
 
 @media (min-width: 800px) {
@@ -153,6 +183,27 @@ header {
     margin-left: auto;
     margin-right: auto;
     width: 600px;
+  }
+  .notes__display {
+    display: -ms-grid;
+    display: grid;
+    gap: 10px;
+    -ms-grid-columns: (50%)[2];
+        grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .notes__display {
+    -ms-grid-columns: (33.3%)[3];
+        grid-template-columns: repeat(3, 33.3%);
+  }
+}
+
+@media (min-width: 1600px) {
+  .notes__display {
+    -ms-grid-columns: (25%)[4];
+        grid-template-columns: repeat(4, 25%);
   }
 }
 /*# sourceMappingURL=style.css.map */

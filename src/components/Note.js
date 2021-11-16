@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import noteColors from './noteColors';
 
-function Note({ note, handleDelete, handleEdit, handleSave }) {
+function Note({ note, handleDelete, handleEdit, handleSave, maxLength }) {
 	const [title, setTitle] = useState(note.title);
 	const [text, setText] = useState(note.text);
 	const handleChange = (e) => {
-		e.target.name === 'title'
-			? setTitle(e.target.value)
-			: setText(e.target.value);
+		if (maxLength - e.target.value.length >= 0) {
+			e.target.name === 'title'
+				? setTitle(e.target.value)
+				: setText(e.target.value);
+		}
 	};
 	return (
 		<div className="note" style={{ backgroundColor: noteColors[note.color] }}>
@@ -45,6 +47,7 @@ function Note({ note, handleDelete, handleEdit, handleSave }) {
 							name="text"
 							onChange={handleChange}
 						></textarea>
+						<div>{`${maxLength - text.length} remaining`}</div>
 					</div>
 				</>
 			)}
